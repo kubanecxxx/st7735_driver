@@ -6,6 +6,7 @@
 * \brief nice driver
 */
 
+#include "port/st7735_port.h"
 #include "st7735_2.h"
 #include "fonts/fonts.h"
 #include "string.h"
