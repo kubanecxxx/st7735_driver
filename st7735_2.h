@@ -89,6 +89,7 @@ void lcdDrawVLine(uint16_t x, uint16_t y0, uint16_t y1, uint16_t color);
 void lcdPutchar(uint8_t znak, uint16_t x, uint16_t y, uint16_t color, uint8_t size);
 void lcdPutString (const char * data, uint16_t x, uint16_t y, uint16_t color, uint8_t size);
 void lcdPutsStringBackground (const char * data, uint16_t x, uint16_t y, uint16_t color,uint16_t background_color, uint8_t size);
+void lcdDrawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);
 
 #ifdef ST7735_RAM_BUFFER
 //ram functions
