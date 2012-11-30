@@ -380,22 +380,29 @@ void lcdPutsStringBackground(const char * data, uint16_t x, uint16_t y,
 	uint16_t x2 = size * strlen(data);
 	uint16_t temp = x;
 	uint16_t temp_y = y;
+	lcdDrawRectangle(x, y, x2 + x, y + size, background_color);
+	lcdPutString(data, temp, temp_y, color, size);
 
-	st7735SetAddrWindow(x, y, x + x2 - 1, y + size - 1);
+}
+
+void lcdDrawRectangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2,
+		uint16_t col)
+{
+	st7735SetAddrWindow(x1, y1, x2 - 1, y2 - 1);
 	st7735WriteCmd(ST7735_RAMWR); // write to RAM
 
-	for (x = 0; x < x2; x++)
+	x2 -= x1;
+	y2 -= y1;
+
+	for (y1 = 0; y1 < y2; y1++)
 	{
-		for (y = 0; y < size; y++)
+		for (x1 = 0; x1 < x2; x1++)
 		{
-			st7735WriteData(background_color >> 8);
-			st7735WriteData(background_color);
+			st7735WriteData(col >> 8);
+			st7735WriteData(col);
 		}
 	}
 	st7735WriteCmd(ST7735_NOP);
-
-	lcdPutString(data, temp, temp_y, color, size);
-
 }
 
 void lcdDrawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2,

@@ -1,54 +1,52 @@
 /**************************************************************************/
 /*! 
-*/
+ */
 /**************************************************************************/
 #ifndef __ST7735_H__
 #define __ST7735_H__
 
 #ifdef __cplusplus
-	extern "C" {
+extern "C"
+{
 #endif
 
-
-
 /**************************************************************************
-    ST7735 CONNECTOR
-    -----------------------------------------------------------------------
-    Pin   Function        Notes
-    ===   ==============  ===============================
-      1   NC
-      2   GND
-      3   LED K/-
-      4   LED A/+         3.0V
-      5   GND
-      6   RESET
-      7   RS
-      8   SDA   - MOSI    Serial Data
-      9   SCL   - SCK     Serial Clock
-     10   VCC             2.8-3.4V
-     11   VCC             2.8-3.4V
-     12   CS
-     13   GND
-     14   NC
+ ST7735 CONNECTOR
+ -----------------------------------------------------------------------
+ Pin   Function        Notes
+ ===   ==============  ===============================
+ 1   NC
+ 2   GND
+ 3   LED K/-
+ 4   LED A/+         3.0V
+ 5   GND
+ 6   RESET
+ 7   RS
+ 8   SDA   - MOSI    Serial Data
+ 9   SCL   - SCK     Serial Clock
+ 10   VCC             2.8-3.4V
+ 11   VCC             2.8-3.4V
+ 12   CS
+ 13   GND
+ 14   NC
 
  **************************************************************************/
 
 #ifdef ST7735_default_port
-	#define CLR_RS     DISPLAY_RS=0
-	#define SET_RS     DISPLAY_RS=1
-	#define CLR_SDA    DISPLAY_MOSI=0
-	#define SET_SDA    DISPLAY_MOSI=1
-	#define CLR_SCL    DISPLAY_SCK=0
-	#define SET_SCL   	DISPLAY_SCK=1
-	#define CLR_CS   	DISPLAY_CS=0
-	#define SET_CS  	DISPLAY_CS=1
-	#define CLR_RES		DISPLAY_RESET=0
-	#define SET_RES		DISPLAY_RESET=1
-	//backlight
-	#define CLR_BL		bit_clr(PORTD,2)
-	#define SET_BL		bit_set(PORTD,2)
+#define CLR_RS     DISPLAY_RS=0
+#define SET_RS     DISPLAY_RS=1
+#define CLR_SDA    DISPLAY_MOSI=0
+#define SET_SDA    DISPLAY_MOSI=1
+#define CLR_SCL    DISPLAY_SCK=0
+#define SET_SCL   	DISPLAY_SCK=1
+#define CLR_CS   	DISPLAY_CS=0
+#define SET_CS  	DISPLAY_CS=1
+#define CLR_RES		DISPLAY_RESET=0
+#define SET_RES		DISPLAY_RESET=1
+//backlight
+#define CLR_BL		bit_clr(PORTD,2)
+#define SET_BL		bit_set(PORTD,2)
 #endif
-
 
 #define ST7735_NOP      (0x0)
 #define ST7735_SWRESET  (0x01)
@@ -86,10 +84,16 @@ void lcdFillRGB(uint16_t color);
 void lcdDrawPixel(uint16_t x, uint16_t y, uint16_t color);
 void lcdDrawHLine(uint16_t x0, uint16_t x1, uint16_t y, uint16_t color);
 void lcdDrawVLine(uint16_t x, uint16_t y0, uint16_t y1, uint16_t color);
-void lcdPutchar(uint8_t znak, uint16_t x, uint16_t y, uint16_t color, uint8_t size);
-void lcdPutString (const char * data, uint16_t x, uint16_t y, uint16_t color, uint8_t size);
-void lcdPutsStringBackground (const char * data, uint16_t x, uint16_t y, uint16_t color,uint16_t background_color, uint8_t size);
-void lcdDrawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);
+void lcdPutchar(uint8_t znak, uint16_t x, uint16_t y, uint16_t color,
+		uint8_t size);
+void lcdPutString(const char * data, uint16_t x, uint16_t y, uint16_t color,
+		uint8_t size);
+void lcdPutsStringBackground(const char * data, uint16_t x, uint16_t y,
+		uint16_t color, uint16_t background_color, uint8_t size);
+void lcdDrawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2,
+		uint16_t color);
+void lcdDrawRectangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2,
+		uint16_t col);
 
 #ifdef ST7735_RAM_BUFFER
 //ram functions

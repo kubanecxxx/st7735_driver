@@ -8,8 +8,6 @@
 #ifndef ST7735WRAPPER_H_
 #define ST7735WRAPPER_H_
 
-#include "st7735.h"
-
 class St7735
 {
 public:
@@ -67,6 +65,11 @@ public:
 			uint16_t y1, uint16_t color)
 	{
 		lcdDrawLine(x0, y0, x1, y1, color);
+	}
+	inline static void DrawRectangle(uint16_t x1, uint16_t y1, uint16_t x2,
+			uint16_t y2, uint16_t color)
+	{
+		lcdDrawRectangle(x1, y1, x2, y2, color);
 	}
 };
 

@@ -13,6 +13,7 @@
  */
 
 #include "st7735_port.h"
+#include "st7735.h"
 #include "St7735Wrapper.h"
 
 
