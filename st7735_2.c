@@ -51,15 +51,15 @@ void st7735SetAddrWindow(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1)
 {
 	st7735WriteCmd(ST7735_CASET); // column addr set
 	st7735WriteData(0x00);
-	st7735WriteData(x0 + 2); // XSTART
+	st7735WriteData(x0 + 0); // XSTART
 	st7735WriteData(0x00);
-	st7735WriteData(x1 + 2); // XEND
+	st7735WriteData(x1 + 0); // XEND
 
 	st7735WriteCmd(ST7735_RASET); // row addr set
 	st7735WriteData(0x00);
-	st7735WriteData(y0 + 1); // YSTART
+	st7735WriteData(y0 + 0); // YSTART
 	st7735WriteData(0x00);
-	st7735WriteData(y1 + 1); // YEND
+	st7735WriteData(y1 + 0); // YEND
 }
 
 /*************************************************/
